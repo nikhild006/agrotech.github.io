@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proceeded Dates</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    #proceeded-dates {
+      list-style-type: none;
+      padding: 0;
+      max-height: 200px; /* Set max height for scrolling */
+      overflow-y: auto; /* Enable vertical scrolling */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    #contact-details {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    #contact-details h3 {
+      margin-top: 0;
+    }
+
+    #contact-details p {
+      margin-bottom: 5px;
+    }
+
+    #image-container {
+      position: relative;
+    }
+
+    #image-container img {
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    #image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #image-overlay a {
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Appointments:</h2>
+  <ul id="proceeded-dates"></ul>
+
+  <div id="image-container">
+    <img src="https://local.hyderabadwater.gov.in/erp/Home/Content/Images/Background/1.jpg" alt="Image" />
+    <div id="image-overlay">
+      <a href="https://local.hyderabadwater.gov.in/erp/Home/Login" target="_blank">Visit Website</a>
+    </div>
+  </div>
+
+  <div id="contact-details">
+    <h3>Contact details</h3>
+    <p>Customer Care center - 155313</p>
+    <p>Fax No: MD's Office, Khairatabad</p>
+  </div>
+
+  <script>
+    // Function to update the list of proceeded dates
+    function updateProceededDatesList() {
+      const proceededDates = JSON.parse(localStorage.getItem('proceededDates')) || [];
+      const proceededDatesContainer = document.getElementById('proceeded-dates');
+      proceededDatesContainer.innerHTML = ''; // Clear previous content
+      proceededDates.forEach(date => {
+        const listItem = document.createElement('li');
+        listItem.textContent = date;
+        proceededDatesContainer.appendChild(listItem);
+      });
+    }
+
+    // Call the function to update the list when the page loads
+    window.onload = updateProceededDatesList;
+  </script>
+</body>
+</html>

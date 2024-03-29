@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatting Block</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .message {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+    .message:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+    .message .sender {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .input-container {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ccc;
+    }
+    .input-container textarea {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: none;
+    }
+    .input-container button {
+        margin-top: 5px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" id="chatContainer">
+        <div class="input-container">
+        <textarea id="userMessage" placeholder="Type your message here"></textarea>
+        <button onclick="postMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function postMessage() {
+        var userMessage = document.getElementById("userMessage").value;
+        var container = document.getElementById("chatContainer");
+        var messageDiv = document.createElement("div");
+        messageDiv.classList.add("message");
+        messageDiv.innerHTML = `
+            <div class="sender">You</div>
+            <div class="text">${userMessage}</div>
+        `;
+        container.insertBefore(messageDiv, container.lastElementChild.previousElementSibling);
+        document.getElementById("userMessage").value = "";
+
+        // Get random reply
+        var replies = [
+            "I agree.",
+            "That's interesting.",
+            "Tell me more.",
+            "Really?",
+            "I'm not sure about that.",
+            "Interesting point of view.",
+            "I see what you mean.",
+            "That's a good question.",
+            "I hadn't thought about that before.",
+            "Could you explain that further?"
+        ];
+        var randomReply = replies[Math.floor(Math.random() * replies.length)];
+        var replyDiv = document.createElement("div");
+        replyDiv.classList.add("message");
+        replyDiv.innerHTML = `
+            <div class="sender">P. SRINIVAS</div>
+            <div class="text">${randomReply}</div>
+        `;
+        container.insertBefore(replyDiv, container.lastElementChild.previousElementSibling);
+    }
+</script>
+
+</body>
+</html>
+

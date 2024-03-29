@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>community</title>
+    <style>
+        /* CSS styling for the table */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        table {
+            width: 80%;
+            height:60%;
+            margin: 20px auto;
+            top:20%;
+            left:10%;
+            position: absolute;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        button{
+            border-radius: 50%;
+            left:92%;
+            top:85%;
+            width:75px;
+            height:75px;
+            position: absolute;
+        }
+        .TD a {
+            transition: transform 0.3s;
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Use the default text color */
+          }
+    </style>
+    <title>Popup Button Example</title>
+    <script>
+        function openPopup() {
+            var popupWindow = window.open("farmer_chat.html", "Popup", "width=600,height=400");
+        }
+    </script>
+
+</head>
+<body>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Crop</th>
+            <th>Region</th>
+            <th>Contact Details</th>
+            <th>Resources</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>P.SRINIVAS</td>
+            <td>Wheat</td>
+            <td>TELANGANA</td>
+            <td>9363456789</td>
+            <td><a href="C-W-SRIN.html">chat</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>A.SAMBHASIVA</td>
+            <td>Corn</td>
+            <td>KARNATKA</td>
+            <td>9876545321</td>
+            <td><a href="C-W-SAMB.html">chat</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>K.RAVI</td>
+            <td>Rice</td>
+            <td>TAMIL NADU</td>
+            <td>9111222333</td>
+            <td><a href="C-W-RAVI.html">chat</a></td>
+        </tr>
+         <tr>
+            <td>4</td>
+            <td>J.ABBAIRAJU</td>
+            <td>COTTON</td>
+            <td>KERALA</td>
+            <td>8683456789</td>
+            <td><a href="C-W-SWAR.html">chat</a></td>
+        </tr> 
+        <tr>
+            <td>5</td>
+            <td>C.VEMANA</td>
+            <td>TEA</td>
+            <td>MAHARASHTRA</td>
+            <td>9344456789</td>
+            <td><a href="C-W-VEMA.html">chat</a></td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+    <button onclick="openPopup()">CHAT</button>
+</table>
+
+
+</body>
+</html>

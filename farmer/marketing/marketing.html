@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boxes and Graph</title>
+  <style>
+    /* Styles remain unchanged */
+     /* Style for the container */
+     .container {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+      border-radius: 20px;
+    }
+
+    /* Style for individual boxes */
+    .box-1{
+      height:30%;
+      top:10%;
+      width: 200px;
+      padding: 20px;
+      border: 0px solid #000;
+      margin: 10px;
+      border-radius : 15px;
+      left:4%;
+      position: fixed;
+      display: inline-block;
+      text-align: center;
+      text-decoration:solid ;
+      background-color: #f7b5bc;
+    }
+
+    .box-2{
+      HEIGHT:30%;
+      top: 55%;
+      background-color: #f3c8b6;
+      width: 200px;
+      padding: 20px;
+      left:4%;
+      position: fixed;
+      border: 0px solid #000;
+      margin: 10px;
+      border-radius: 15px;
+      display: inline-block;
+      text-align: center;
+    }
+    body{
+      background-color: #e1dcd8;
+    }
+    .box-3{
+      position: fixed;
+      top: 10%;
+      left: 350px;
+      width: 200px;
+      background-color: #c9d7f3;
+      height: 500px;
+      padding: 20px;
+      border-radius: 15px;
+      border: 0px solid #000;
+      margin: 10px;
+      text-align: center;
+      display: inline-block;
+      line-height: 25PX;
+      text-decoration: none;
+      font: #000;
+    }
+    .box-1 a {
+      transition: transform 0.3s;
+      text-decoration: none; /* Remove underline */
+      color: inherit; /* Use the default text color */
+    }
+    .box-1 a:hover {
+      transform: translateY(-5px); /* Adjust the value to control the elevation */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for elevation */
+  }
+    .box-2 a {
+      transition: transform 0.3s;
+      text-decoration: none; /* Remove underline */
+      color: inherit; /* Use the default text color */
+    }
+    .box-2 a:hover {
+      transform: translateY(-5px); /* Adjust the value to control the elevation */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for elevation */
+  }
+    .box-3 a {
+      transition: transform 0.3s;
+      text-decoration: none; /* Remove underline */
+      color: inherit; /* Use the default text color */
+    }
+    .box-3 a:hover {
+      transform: translateY(-5px); /* Adjust the value to control the elevation */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for elevation */
+  }
+  nav {
+    background-color: #333;
+    overflow: hidden;
+    text-align: left; /* Add this line */
+    position: fixed;
+    z-index: 9999;
+    width:2000px;
+    top:0;
+  }
+  
+  nav a {
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  body{
+    margin: 0;
+  }
+    .graph-box {
+      left: 750px;
+      top: 130px;
+      position: fixed;
+      width: 350px;
+      height:350px;
+      border: 0px solid #000;
+      margin: 10px;
+      text-align: center;
+    }
+    .button{
+      width: 180px;
+      height: 19px;
+      border: 0; 
+      background-color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="..\plot\plot.html">Plot</a>
+    <a href="..\schedule\schedule.html">Schedule</a>
+    <a href="..\SoilQuality\SoilQuality.html">SoilQuality</a>
+    <a href="..\irrigation\irrigation.html">Irrigation</a>
+    <a href="..\harvesting\harvesting.html">Harvesting</a>
+    <a href="..\marketing\marketing.html">Marketing</a>
+    <a href="..\profile\profile.html">Profile</a>
+</nav>
+  <div class="container">
+    <div class="box-1">
+      <br><br><br><br><br>
+      <button class="button" onclick="window.open('TABLE.HTML', '_blank')">COMMUNITY</button>
+    </div>
+
+    <div class="box-2">
+      <br><br><br><br><br>
+      <button class="button" onclick="window.open('MARKETS_NEAR_ME.HTML', '_blank')">MARKETS NEAR-ME</button>
+    </div>
+
+    <div class="box-3">
+      <br><br><br><br><br><br>
+      <h2>MARKET VALUE</h2>
+      <button class="button" onclick="window.open('https://www.commodityonline.com/mandiprices/wheat/telangana', '_blank')">TELANGANA</button><br>
+      <button class="button" onclick="window.open('https://www.commodityonline.com/mandiprices/wheat/karnataka', '_blank')">KARNATAKA</button><br>
+      <button class="button" onclick="window.open('https://www.commodityonline.com/mandiprices/wheat/odisha', '_blank')">ODISHA</button><br>
+      <button class="button" onclick="window.open('https://www.commodityonline.com/mandiprices/wheat/rajasthan', '_blank')">RAJASTHAN</button><br>
+    </div>
+  </div>
+
+  <div class="graph-box">
+    <img src="https://i.ibb.co/z7sKhrD/image.png" width="400px" height="400px">   
+  </div>
+
+</body>
+</html>

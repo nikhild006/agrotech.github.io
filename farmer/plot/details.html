@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Website - Enter Details</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter Details</h2>
+    <form id="detailsForm" action="#" method="post" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age" required>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Dropdowns for District, Mandal, and Village -->
+        <label for="district">District:</label>
+        <select id="district" name="district" onchange="populateMandals()" required>
+            <option value="" disabled selected>Select District</option>
+            <option value="Prakasham">Prakasham</option>
+            <option value="Eluru">Eluru</option>
+            <option value="Guntur">Guntur</option>
+            <option value="Srikakulam">Srikakulam</option>
+            <option value="Ananthapur">Ananthapur</option>
+        </select>
+        
+        <label for="mandal">Mandal:</label>
+        <select id="mandal" name="mandal" onchange="populateVillages()" required>
+            <option value="" disabled selected>Select Mandal</option>
+            <!-- Options will be dynamically populated based on selected district -->
+        </select>
+        
+        <label for="village">Village:</label>
+        <select id="village" name="village" required>
+            <option value="" disabled selected>Select Village</option>
+            <!-- Options will be dynamically populated based on selected mandal -->
+        </select>
+        <!-- End of dropdowns -->
+
+        <label for="income">Income:</label>
+        <input type="number" id="income" name="income" placeholder="Enter your income" required>
+        
+        <label for="surveyNumber">Survey Number:</label>
+        <input type="text" id="surveyNumber" name="surveyNumber" placeholder="Enter your survey number" required>
+
+        <label for="aadharID">Aadhar ID:</label>
+        <input type="text" id="aadharID" name="aadharID" placeholder="Enter your Aadhar ID" maxlength="12" pattern="\d{12}" title="Please enter exactly 12 digits" required>
+        
+        <label for="budget">Budget:</label>
+        <input type="number" id="budget" name="budget" placeholder="Enter your budget" required>
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    function populateMandals() {
+        var district = document.getElementById('district').value;
+        var mandalDropdown = document.getElementById('mandal');
+        mandalDropdown.innerHTML = '';
+
+        if (district === 'Prakasham') {
+            addOptions(mandalDropdown, ['Ongole', 'Pamur', 'Kondapi', 'Darsi']);
+        } else if (district === 'Eluru') {
+            addOptions(mandalDropdown, ['Eluru (Urban)', 'Eluru (Rural)', 'Kalidindi', 'Kukunoor']);
+        } else if (district === 'Guntur') {
+            addOptions(mandalDropdown, ['Guntur (West)', 'Guntur (East)', 'Ponnur', 'Tenali']);
+        } else if (district === 'Srikakulam') {
+            addOptions(mandalDropdown, ['Burja', 'Kaviti', 'Mandasa', 'Palasa']);
+        } else if (district === 'Ananthapur') {
+            addOptions(mandalDropdown, ['Atmakur', 'Gooty', 'Pamidi', 'Yellanur']);
+        }
+    }
+
+    function populateVillages() {
+        var mandal = document.getElementById('mandal').value;
+        var villageDropdown = document.getElementById('village');
+        villageDropdown.innerHTML = '';
+
+        if (mandal === 'Ongole') {
+            addOptions(villageDropdown, ['Pellur', 'Ulichi', 'Errajerla']);
+        } else if (mandal === 'Pamur') {
+            addOptions(villageDropdown, ['Nidamarru', 'Mulaguntapadu', 'Pallavolu', 'Nimmagadda']);
+        } else if (mandal === 'Kondapi') {
+            addOptions(villageDropdown, ['Kalluru', 'Chintakunta', 'Kondapi', 'Peddakandukuru']);
+        } else if (mandal === 'Darsi') {
+            addOptions(villageDropdown, ['Chintalapalem', 'Kothapalem', 'Darsi', 'Lingasamudram']);
+        } else if (mandal === 'Eluru (Urban)') {
+            addOptions(villageDropdown, ['Pedapenki', 'Tangellamudi', 'Sanivarapupeta', 'Mulagalakota']);
+        } else if (mandal === 'Eluru (Rural)') {
+            addOptions(villageDropdown, ['Burugupudi', 'Chintalapudi', 'Komatlapadu', 'Raparla']);
+        } else if (mandal === 'Kalidindi') {
+            addOptions(villageDropdown, ['Kanchikacherla', 'Kalidindi', 'Palakollu', 'Mullapudi']);
+        } else if (mandal === 'Kukunoor') {
+            addOptions(villageDropdown, ['Kukunoor', 'Chintavaram', 'Mupkal', 'Venkatapuram']);
+        } else if (mandal === 'Guntur (West)') {
+            addOptions(villageDropdown, ['Yerrabalem', 'Nidumukkala', 'Nekkallu', 'Rangapuram']);
+        } else if (mandal === 'Guntur (East)') {
+            addOptions(villageDropdown, ['Ananthavaram', 'Lingamguntla', 'Rayapudi', 'Vallabhapuram']);
+        } else if (mandal === 'Ponnur') {
+            addOptions(villageDropdown, ['Kurichedu', 'Ponnur', 'Kakumanu', 'Pedakakani']);
+        } else if (mandal === 'Tenali') {
+            addOptions(villageDropdown, ['Chilumuru', 'Tenali', 'Pedaparimi', 'Kollipara']);
+        } else if (mandal === 'Burja') {
+            addOptions(villageDropdown, ['Burja', 'Vemulapalli', 'Thummalapalli', 'Yedlanka']);
+        } else if (mandal === 'Kaviti') {
+            addOptions(villageDropdown, ['Kaviti', 'Meliaputti', 'Nimmaluru', 'Rongikaviti']);
+        } else if (mandal === 'Mandasa') {
+            addOptions(villageDropdown, ['Mandasa', 'Digamarru', 'Peddagummuluru', 'Sompeta']);
+        } else if (mandal === 'Palasa') {
+            addOptions(villageDropdown, ['Palasa', 'Baruva', 'Kotturu', 'Mandasa']);
+        } else if (mandal === 'Atmakur') {
+            addOptions(villageDropdown, ['Atmakur', 'Chilakaluripet', 'Cherukupalli', 'Nandigama']);
+        } else if (mandal === 'Gooty') {
+            addOptions(villageDropdown, ['Gooty', 'Tadimarri', 'Ramagiri', 'Nallamada']);
+        } else if (mandal === 'Pamidi') {
+            addOptions(villageDropdown, ['Pamidi', 'Uppalapadu', 'Kallur', 'Devagudi']);
+        } else if (mandal === 'Yellanur') {
+            addOptions(villageDropdown, ['Yellanur', 'Nandyal', 'Krishnapuram', 'Ramapuram']);
+        }
+    }
+
+    function addOptions(selectElement, options) {
+        options.forEach(function(option) {
+            var optionElement = document.createElement('option');
+            optionElement.value = option;
+            optionElement.textContent = option;
+            selectElement.appendChild(optionElement);
+        });
+    }
+
+    function validateForm() {
+        var nameInput = document.getElementById('name');
+        var nameValue = nameInput.value.toLowerCase(); 
+        var surveyNumberInput = document.getElementById('surveyNumber');
+        var surveyNumberValue = surveyNumberInput.value;
+        var aadharIDInput = document.getElementById('aadharID');
+        var aadharIDValue = aadharIDInput.value;
+
+        // Check if the conditions are met for redirection
+        if (nameValue === 'swarnakar' && (surveyNumberValue === '23071A1202' || surveyNumberValue === '23071A1203' || surveyNumberValue === '23071A1204' || surveyNumberValue === '23071A6516')) {
+            // Get the selected district, mandal, and village
+            var district = document.getElementById('district').value;
+            var mandal = document.getElementById('mandal').value;
+            var village = document.getElementById('village').value;
+
+            // Redirect to plot_farmer.html with URL parameters
+            window.location.href = "plot_farmer.html?district=" + encodeURIComponent(district) + "&mandal=" + encodeURIComponent(mandal) + "&village=" + encodeURIComponent(village);
+            return false; // Prevent the form from submitting normally
+        }
+        return true; // Allow form submission if conditions are not met
+    }
+</script>
+
+</body>
+</html>

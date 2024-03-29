@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        nav {
+    background-color: #333;
+    overflow: hidden;
+    text-align: left; /* Add this line */
+    position: fixed;
+    width: 2000px;
+    z-index: 9999;
+    height: 50px;
+    top: 0;
+  }
+  
+  nav a {
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="..\plot\plot.html">Plot</a>
+        <a href="..\schedule\schedule.html">Schedule</a>
+        <a href="..\SoilQuality\SoilQuality.html">SoilQuality</a>
+        <a href="..\irrigation\irrigation.html">Irrigation</a>
+        <a href="..\harvesting\harvesting.html">Harvesting</a>
+        <a href="..\marketing\marketing.html">Marketing</a>
+        <a href="..\profile\profile.html">Profile</a>
+    </nav>
+<div class="container">
+    <h2>Plot Information</h2>
+    <div id="plotImage">
+        <!-- Plot Image will be dynamically inserted here -->
+    </div>
+    <p>Plot Area: <span id="plotArea"></span> acres</p>
+    <p>Area per Division: <span id="areaPerDivision"></span> acres</p>
+    <hr>
+    <h2>Water Resources</h2>
+    <div id="waterImage">
+        <!-- Water Source Image will be dynamically inserted here -->
+    </div>
+    <p>Source: <span id="waterSource"></span></p>
+</div>
+
+<script>
+    // Array of plot and water source image URLs
+    var plots = [
+        { plot: 'https://i.ibb.co/VMXRWx3/image.png', water: 'https://i.ibb.co/Pz5X2vr/image.png' },
+        { plot: 'https://i.ibb.co/qk2V2F5/image.png', water: 'https://i.ibb.co/hDqCnrs/image.png' },
+        { plot: 'https://i.ibb.co/CW96Cjs/image.png', water: 'https://i.ibb.co/K273TyY/image.png' }
+    ];
+
+    // Array of plot areas and areas per division
+    var plotAreas = [10, 15, 20];
+    var areaPerDivisions = [2, 3, 4];
+
+    // Get random index for plot and water source images
+    var randomIndex = Math.floor(Math.random() * plots.length);
+
+    // Get random plot area and area per division
+    var randomPlotArea = plotAreas[Math.floor(Math.random() * plotAreas.length)];
+    var randomAreaPerDivision = areaPerDivisions[Math.floor(Math.random() * areaPerDivisions.length)];
+
+    // Get random water source
+    var randomWaterSource = '';
+    var waterSourceIndex = Math.floor(Math.random() * 3);
+    if (waterSourceIndex === 0) {
+        randomWaterSource = 'Nearest water source';
+    } else if (waterSourceIndex === 1) {
+        randomWaterSource = 'Nearest water source';
+    } else {
+        randomWaterSource = 'Nearest water source';
+    }
+
+    // Display random plot image, plot area, area per division, water source image, and water source details
+    document.getElementById('plotImage').innerHTML = '<img src="' + plots[randomIndex].plot + '" alt="Plot Image">';
+    document.getElementById('plotArea').textContent = randomPlotArea;
+    document.getElementById('areaPerDivision').textContent = randomAreaPerDivision;
+    document.getElementById('waterImage').innerHTML = '<img src="' + plots[randomIndex].water + '" alt="Water Source Image">';
+    document.getElementById('waterSource').textContent = randomWaterSource;
+</script>
+
+</body>
+</html>
